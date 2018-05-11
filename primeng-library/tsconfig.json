@@ -1,0 +1,39 @@
+{
+  "compileOnSave": false,
+  "angularCompilerOptions": {
+    "paths": {
+      "clean-minds-primeng-library": [
+        "../library/clean-minds-primeng.library.ts"
+      ],
+      "skipTemplateCodegen": true,
+      "fullTemplateTypeCheck": true,
+      "preserveWhitespaces": false,
+    },
+    "fullTemplateTypeCheck": true,
+    "strictMetadataEmit": true // AoT compatible
+  },
+  "compilerOptions": {
+    "outDir": "./dist/out-tsc",
+    "baseUrl": "src",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noImplicitAny": true,
+    "target": "es5",
+    "module": "es2015",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "paths": {
+      "clean-minds-primeng-library": [
+        "../library/clean-minds-primeng.library.ts"
+      ]
+    }
+  }
+}

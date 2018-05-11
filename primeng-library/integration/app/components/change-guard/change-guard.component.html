@@ -1,0 +1,6 @@
+<form [formGroup]="formGroup">
+  <input type="text" pInputText maxlength="32" formControlName="inputText" />
+  <br><br>
+  <button type="button" (click)="doAccept()">Accept</button>
+  <button type="button" (click)="doCancel()">Cancel</button>
+</form>
