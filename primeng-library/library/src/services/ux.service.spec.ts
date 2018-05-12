@@ -4,9 +4,9 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { ConfirmationService } from 'primeng/api';
 
 import { AppServiceConfig } from '../../x-shared/src/model/app-service-config';
-import { AppService } from '../../x-shared/src/providers/app.service';
-import { LogService } from '../../x-shared/src/providers/log.service';
-import { RestApiService } from '../../x-shared/src/providers/rest-api.service';
+import { AppService } from '../../x-shared/src/services/app.service';
+import { LogService } from '../../x-shared/src/services/log.service';
+import { WebApiService } from '../../x-shared/src/services/web-api.service';
 import { Environment, EnvironmentDefault } from '../model/environment';
 import { Authorization, AuthorizationDefault } from '../model/authorization';
 import { UxMessage } from '../model/ux-message';
@@ -29,7 +29,7 @@ describe('UxService', () => {
         },
         AppService,
         LogService,
-        RestApiService,
+        WebApiService,
         ConfirmationService,
         UxService
       ]

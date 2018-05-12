@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
 import { NavigationGuardService } from 'clean-minds-primeng-library';
-import { CancellationGuardService } from 'clean-minds-primeng-library';
+import { CanDeactivateGuardService } from 'clean-minds-primeng-library';
 
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
-import { ChangeGuardComponent } from './components/change-guard/change-guard.component';
+import { CanDeactivateComponent } from './components/can-deactivate/can-deactivate.component';
 
 
 /**
@@ -25,10 +25,10 @@ export const AppRoutes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'change-guard', pathMatch: 'full',
-    component: ChangeGuardComponent,
+    path: 'can-deactivate', pathMatch: 'full',
+    component: CanDeactivateComponent,
     canActivate: [NavigationGuardService],
-    canDeactivate: [CancellationGuardService]
+    canDeactivate: [CanDeactivateGuardService]
   },
   { path: '**', redirectTo: '/home' }
 ];

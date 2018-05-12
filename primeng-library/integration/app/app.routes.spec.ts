@@ -13,7 +13,7 @@ import { AppService } from 'clean-minds-primeng-library';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
-import { ChangeGuardComponent } from './components/change-guard/change-guard.component';
+import { CanDeactivateComponent } from './components/can-deactivate/can-deactivate.component';
 
 import { AppRoutes } from './app.routes';
 
@@ -34,7 +34,7 @@ describe('Router', () => {
         AppComponent,
         HomeComponent,
         LoginComponent,
-        ChangeGuardComponent
+        CanDeactivateComponent
       ]
     });
 

@@ -23,5 +23,5 @@ export interface Environment {
  */
 export const EnvironmentDefault = <Environment> {
   debug: true,
-  apiBaseUrl: 'http://cleandminds/',
+  apiBaseUrl: 'null',
 };

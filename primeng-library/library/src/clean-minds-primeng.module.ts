@@ -7,15 +7,15 @@ import { AuthorizationDefault } from './model/authorization';
 import { EnvironmentDefault } from './model/environment';
 
 import { AppServiceConfig } from '../x-shared/src/model/app-service-config';
-import { AppService } from '../x-shared/src/providers/app.service';
-import { LogService } from '../x-shared/src/providers/log.service';
-import { RestApiService } from '../x-shared/src/providers/rest-api.service';
-import { HttpInterceptorService } from '../x-shared/src/providers/http-interceptor.service';
-import { NavigationGuardService } from './providers/navigation-guard.service';
-import { CancellationGuardService } from './providers/cancellation-guard.service';
-import { UxService } from './providers/ux.service';
+import { AppService } from '../x-shared/src/services/app.service';
+import { LogService } from '../x-shared/src/services/log.service';
+import { WebApiService } from '../x-shared/src/services/web-api.service';
+import { HttpInterceptorService } from '../x-shared/src/services/http-interceptor.service';
+import { NavigationGuardService } from './services/navigation-guard.service';
+import { CanDeactivateGuardService } from './services/can-deactivate-guard.service';
+import { UxService } from './services/ux.service';
 
-import { ExceptionHandler } from './providers/exception-handler';
+import { ExceptionHandler } from './services/exception-handler';
 
 // Ux component imports
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -81,7 +81,7 @@ export class CleanMindsPrimeNgModule {
         },
         AppService,
         LogService,
-        RestApiService,
+        WebApiService,
         {
           provide: HTTP_INTERCEPTORS,
           useClass: HttpInterceptorService,
@@ -89,7 +89,7 @@ export class CleanMindsPrimeNgModule {
         },
         UxService,
         NavigationGuardService,
-        CancellationGuardService,
+        CanDeactivateGuardService,
         {
           provide: ErrorHandler,
           useClass: ExceptionHandler

@@ -26,7 +26,7 @@ export interface Environment extends CoreEnvironment {
  */
 export const EnvironmentDefault = <Environment>{
   debug: true,
-  apiBaseUrl: 'http://cleandminds/',
+  apiBaseUrl: 'null',
   localization: {
     msgInternalError: 'Internal error!',
     msgForbiddenPath: 'Sorry, you haven\'t authorization for this.',

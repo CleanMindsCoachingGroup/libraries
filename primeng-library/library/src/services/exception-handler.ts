@@ -1,7 +1,7 @@
 import { ErrorHandler, Inject } from '@angular/core';
 
-import { AppService } from '../../x-shared/src/providers/app.service';
-import { LogService } from '../../x-shared/src/providers/log.service';
+import { AppService } from '../../x-shared/src/services/app.service';
+import { LogService } from '../../x-shared/src/services/log.service';
 import { Environment } from '../model/environment';
 
 

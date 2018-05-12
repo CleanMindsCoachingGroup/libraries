@@ -8,7 +8,7 @@ import 'rxjs/add/operator/catch';
 import { ApiException } from '../exceptions/api-exception';
 import { AppService } from './app.service';
 import { LogService } from './log.service';
-import { RestApiService } from './rest-api.service';
+import { WebApiService } from './web-api.service';
 
 
 
@@ -31,7 +31,7 @@ export class HttpInterceptorService implements HttpInterceptor {
   constructor(
     private appService: AppService,
     private logService: LogService,
-    private apiService: RestApiService
+    private webApiService: WebApiService
   ) {
     if (this.headers == undefined) {
       logService.debug('Initializing API http headers.');
@@ -70,7 +70,7 @@ export class HttpInterceptorService implements HttpInterceptor {
     }
 
     // adds the API call
-    this.apiService.addApiCall();
+    this.webApiService.addApiCall();
 
     // clone the request to adjust properties
     httpRequest = httpRequest.clone({
@@ -98,13 +98,13 @@ export class HttpInterceptorService implements HttpInterceptor {
             this.logService.info(`Invalid object in HTTP response from ${httpRequest.method} request: ${JSON.stringify(httpRequest)}`);
             this.logService.debug(JSON.stringify(httpEvent));
             // removes the API call
-            this.apiService.removeApiCall();
+            this.webApiService.removeApiCall();
             throw new ApiException(httpRequest.url,
               'Unknown response in service call.');
           }
         }
         // removes the API call
-        this.apiService.removeApiCall();
+        this.webApiService.removeApiCall();
 
       })
 
@@ -118,13 +118,13 @@ export class HttpInterceptorService implements HttpInterceptor {
           this.logService.debug(`HTTP error response from ${httpRequest.method} request: ${JSON.stringify(httpRequest)}`);
           this.logService.debug(httpEvent);
           // removes the API call
-          this.apiService.removeApiCall();
+          this.webApiService.removeApiCall();
           return this.handleHttpResponseError(httpRequest.url, httpEvent);
 
         } else if (httpEvent instanceof Error && httpEvent.name === ApiException.name) {
           // ApiException exception in response treatment, returns
           // removes the API call
-          this.apiService.removeApiCall();
+          this.webApiService.removeApiCall();
           return new ErrorObservable(httpEvent);
 
         } else {
@@ -132,7 +132,7 @@ export class HttpInterceptorService implements HttpInterceptor {
           this.logService.debug(`Unknown error response from ${httpRequest.method} request: ${JSON.stringify(httpRequest)}`);
           this.logService.debug(httpEvent);
           // removes the API call
-          this.apiService.removeApiCall();
+          this.webApiService.removeApiCall();
           return new ErrorObservable(new ApiException(httpRequest.url,
             'Unknown error in service call: ' + JSON.stringify(httpEvent)));
         }

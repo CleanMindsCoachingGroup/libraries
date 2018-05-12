@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Router, Route, ActivatedRouteSnapshot, RouterStateSnapshot, CanActivate, CanLoad, CanActivateChild } from '@angular/router';
 
 import { Environment } from '../model/environment';
-import { AppService } from '../../x-shared/src/providers/app.service';
-import { LogService } from '../../x-shared/src/providers/log.service';
+import { AppService } from '../../x-shared/src/services/app.service';
+import { LogService } from '../../x-shared/src/services/log.service';
 import { UxService } from './ux.service';
 import { UxMessage } from '../model/ux-message';
 

@@ -4,13 +4,13 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { Router, ActivatedRouteSnapshot, Route } from '@angular/router';
 
 import { AppServiceConfig } from '../../x-shared/src/model/app-service-config';
-import { AppService } from '../../x-shared/src/providers/app.service';
-import { LogService } from '../../x-shared/src/providers/log.service';
+import { AppService } from '../../x-shared/src/services/app.service';
+import { LogService } from '../../x-shared/src/services/log.service';
 import { Environment, EnvironmentDefault } from '../model/environment';
 import { Authorization, AuthorizationDefault } from '../model/authorization';
 
 import { UxService } from './ux.service';
-import { RestApiService } from '../../x-shared/src/providers/rest-api.service';
+import { WebApiService } from '../../x-shared/src/services/web-api.service';
 import { ConfirmationService } from 'primeng/api';
 
 import { NavigationGuardService } from './navigation-guard.service';
@@ -34,7 +34,7 @@ describe('NavigationGuardService', () => {
         AppService,
         LogService,
         UxService,
-        RestApiService,
+        WebApiService,
         ConfirmationService,
         NavigationGuardService
       ]

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
-import { UxService } from '../../providers/ux.service';
-import { LogService } from '../../../x-shared/src/providers/log.service';
+import { UxService } from '../../services/ux.service';
+import { LogService } from '../../../x-shared/src/services/log.service';
 
 
 @Component({

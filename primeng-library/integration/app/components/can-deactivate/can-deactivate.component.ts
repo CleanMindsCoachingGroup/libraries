@@ -1,15 +1,15 @@
 import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import { AppService, LogService, UxFormGroupObserver } from 'clean-minds-primeng-library';
+import { AppService, LogService, ComponentCanDeactivate } from 'clean-minds-primeng-library';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 
 
 @Component({
-  selector: 'cm-application-change-guard',
-  templateUrl: './change-guard.component.html',
-  styleUrls: ['./change-guard.component.css']
+  selector: 'cm-application-can-deactivate',
+  templateUrl: './can-deactivate.component.html',
+  styleUrls: ['./can-deactivate.component.css']
 })
-export class ChangeGuardComponent extends UxFormGroupObserver implements OnInit, AfterViewInit, OnDestroy {
+export class CanDeactivateComponent implements OnInit, ComponentCanDeactivate {
 
   formGroup: FormGroup;
   inputText: string;
@@ -20,9 +20,7 @@ export class ChangeGuardComponent extends UxFormGroupObserver implements OnInit,
     logService: LogService,
     private formBuilder: FormBuilder,
     private router: Router
-  ) {
-    super(appService, logService);
-  }
+  ) { }
 
   ngOnInit() {
     this.formGroup = this.formBuilder.group({
@@ -30,17 +28,13 @@ export class ChangeGuardComponent extends UxFormGroupObserver implements OnInit,
     });
   }
 
-  ngAfterViewInit() {
-    this.activateChangeObserver(this.formGroup);
+  canDeactivate() {
+    return !(this.formGroup.dirty);
   }
-
-  ngOnDestroy() {  // tslint:disable-line:use-life-cycle-interface
-    this.deactivateChangeObserver();
-  }
-
 
   doAccept() {
-    this.deactivateChangeObserver();
+    // reset the state of a possible dirty
+    this.formGroup.markAsPristine();
     this.router.navigate(['home']);
   }
 

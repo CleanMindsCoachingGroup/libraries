@@ -62,8 +62,8 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  goChangeGuardPage() {
-    this.router.navigate(['change-guard']);
+  goCanDeactivatePage() {
+    this.router.navigate(['can-deactivate']);
   }
 
   goLoginPage() {

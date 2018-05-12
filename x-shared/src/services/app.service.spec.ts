@@ -20,7 +20,7 @@ describe('AppService', () => {
 
   it('should have default Environment', inject([AppService], (appService: AppService) => {
     expect(appService.environment.debug).toBeTruthy();
-    expect(appService.environment.apiBaseUrl).toBe('http://cleandminds/');
+    expect(appService.environment.apiBaseUrl).toBe('null');
   }));
 
   it('should have default Authorization', inject([AppService], (appService: AppService) => {

@@ -7,9 +7,9 @@ import { ConfirmationService } from 'primeng/api';
 
 import { Environment } from '../model/environment';
 import { UxMessage } from '../model/ux-message';
-import { AppService } from '../../x-shared/src/providers/app.service';
-import { LogService } from '../../x-shared/src/providers/log.service';
-import { RestApiService } from '../../x-shared/src/providers/rest-api.service';
+import { AppService } from '../../x-shared/src/services/app.service';
+import { LogService } from '../../x-shared/src/services/log.service';
+import { WebApiService } from '../../x-shared/src/services/web-api.service';
 
 
 
@@ -27,7 +27,7 @@ export class UxService {
   constructor(
     private appService: AppService,
     private logService: LogService,
-    private restApiService: RestApiService,
+    private webApiService: WebApiService,
     private confirmationService: ConfirmationService
   ) {
     this.logService.info('UxService created.');
@@ -101,7 +101,7 @@ export class UxService {
   private uxLocks = 0; // tslint:disable-line:member-ordering
   private _uxLockMessage: string = undefined; // tslint:disable-line:member-ordering
 
-  get uxLocked(): boolean { return (this.uxLocks > 0) || this.restApiService.runningApiCalls; }
+  get uxLocked(): boolean { return (this.uxLocks > 0) || this.webApiService.runningApiCalls; }
   get uxLockMessage(): string { return this._uxLockMessage; }
 
   lockUx(message?: string) {
