@@ -7,7 +7,7 @@ import { LogService } from './log.service';
  * Injectable HttpClient proxy for all REST api services calls.
  */
 @Injectable()
-export class RestApiService {
+export class WebApiService {
 
   private runningCalls = 0; // tslint:disable-line:member-ordering
 
@@ -37,7 +37,7 @@ export class RestApiService {
     private httpClient: HttpClient,
     private logService: LogService,
   ) {
-    this.logService.info('RestApiService created.');
+    this.logService.info('WebApiService created.');
   }
 
   /**

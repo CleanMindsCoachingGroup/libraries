@@ -15,7 +15,7 @@ import { BlockUIModule } from 'primeng/blockui';
 import { AppServiceConfig } from '../../../x-shared/src/model/app-service-config';
 import { AppService } from '../../../x-shared/src/providers/app.service';
 import { LogService } from '../../../x-shared/src/providers/log.service';
-import { RestApiService } from '../../../x-shared/src/providers/rest-api.service';
+import { WebApiService } from '../../../x-shared/src/providers/web-api.service';
 import { Environment, EnvironmentDefault } from '../../../x-shared/src/model/environment';
 import { Authorization, AuthorizationDefault } from '../../../x-shared/src/model/authorization';
 import { UxService } from '../../providers/ux.service';
@@ -52,7 +52,7 @@ describe('UxComponent', () => {
         },
         AppService,
         LogService,
-        RestApiService,
+        WebApiService,
         ConfirmationService,
         UxService
       ]

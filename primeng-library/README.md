@@ -75,7 +75,7 @@ The library adds this providers from itself, not necessary to provide in your ap
 
 * AppService
 * LogService
-* RestApiService
+* WebApiService
 * NavigationGuardService
 * CancellationGuardService
 * UxService
@@ -170,7 +170,7 @@ You must include this component in your routes definition:
 
 ## HTTP Api calls handling features
 
-The library includes a HTTP client proxy ApiService with get, post, put, delete and patch methods. This service:
+The library includes a HTTP client proxy WebApiService with get, post, put, delete and patch methods. This service:
 
 * uses the the `authorization` object passed to clean minds library module initialization for check the user authentication, through HttpInterceptorService.
 * returns the result JSON of the request.

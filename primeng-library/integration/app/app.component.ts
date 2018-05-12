@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import { AppService } from 'clean-minds-primeng-library';
 import { LogService } from 'clean-minds-primeng-library';
-import { RestApiService } from 'clean-minds-primeng-library';
+import { WebApiService } from 'clean-minds-primeng-library';
 import { UxService } from 'clean-minds-primeng-library';
 
 @Component({
@@ -20,12 +20,12 @@ export class AppComponent {
   constructor(
     private appService: AppService,
     private logService: LogService,
-    private apiService: RestApiService,
+    private webApiService: WebApiService,
     private uxService: UxService,
   ) {
     this.appServiceName = this.appService.constructor.name;
     this.logServiceName = this.logService.constructor.name;
-    this.apiServiceName = this.apiService.constructor.name;
+    this.apiServiceName = this.webApiService.constructor.name;
     this.UxServiceName = this.uxService.constructor.name;
   }
 }

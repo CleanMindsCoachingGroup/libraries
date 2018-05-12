@@ -7,7 +7,7 @@ import { Authorization } from '../model/authorization';
 
 import { AppService } from './app.service';
 import { LogService } from './log.service';
-import { RestApiService } from './rest-api.service';
+import { WebApiService } from './web-api.service';
 
 import { HttpInterceptorService } from './http-interceptor.service';
 
@@ -19,7 +19,7 @@ describe('HttpInterceptorService', () => {
       providers: [
         AppService,
         LogService,
-        RestApiService,
+        WebApiService,
         {
           provide: HTTP_INTERCEPTORS,
           useClass: HttpInterceptorService,
@@ -64,7 +64,7 @@ describe('HttpInterceptorService', () => {
             },
             error => {
               expect(error.name).toBe('ApiException');
-              expect(error.message).toBe('Api service "/": Forbidden request path for not authenticated users.');
+              expect(error.message).toBe('Web api service "/": Forbidden request path for not authenticated users.');
             }
           );
 
@@ -281,25 +281,25 @@ describe('HttpInterceptorService', () => {
     it('when there is response',
       inject(
         [AppService,
-          RestApiService,
+          WebApiService,
           HttpClient,
           HttpTestingController],
         (appService: AppService,
-          apiService: RestApiService,
+          webApiService: WebApiService,
           httpClient: HttpClient,
           httpTestingController: HttpTestingController) => {
 
-          spyOn(apiService, 'addApiCall');
-          spyOn(apiService, 'removeApiCall');
+          spyOn(webApiService, 'addApiCall');
+          spyOn(webApiService, 'removeApiCall');
 
           // execute the test call
           httpClient
             .get('')
             .subscribe(
               response => {
-                expect(apiService.addApiCall).toHaveBeenCalled();
-                expect(apiService.removeApiCall).toHaveBeenCalled();
-                expect(apiService.runningApiCalls).toBeFalsy();
+                expect(webApiService.addApiCall).toHaveBeenCalled();
+                expect(webApiService.removeApiCall).toHaveBeenCalled();
+                expect(webApiService.runningApiCalls).toBeFalsy();
               });
 
           // expect that the get request happened and transmit the response
@@ -313,16 +313,16 @@ describe('HttpInterceptorService', () => {
     it('when response not contains an Object',
       inject(
         [AppService,
-          RestApiService,
+          WebApiService,
           HttpClient,
           HttpTestingController],
         (appService: AppService,
-          apiService: RestApiService,
+          webApiService: WebApiService,
           httpClient: HttpClient,
           httpTestingController: HttpTestingController) => {
 
-          spyOn(apiService, 'addApiCall');
-          spyOn(apiService, 'removeApiCall');
+          spyOn(webApiService, 'addApiCall');
+          spyOn(webApiService, 'removeApiCall');
 
           // execute the test call
           httpClient
@@ -332,9 +332,9 @@ describe('HttpInterceptorService', () => {
                 expect((<any>response)).toBeUndefined(); // the test is ko, then force error
               },
               error => {
-                expect(apiService.addApiCall).toHaveBeenCalled();
-                expect(apiService.removeApiCall).toHaveBeenCalled();
-                expect(apiService.runningApiCalls).toBeFalsy();
+                expect(webApiService.addApiCall).toHaveBeenCalled();
+                expect(webApiService.removeApiCall).toHaveBeenCalled();
+                expect(webApiService.runningApiCalls).toBeFalsy();
               });
 
           // expect that the get request happened and transmit the response
@@ -348,16 +348,16 @@ describe('HttpInterceptorService', () => {
     it('when there is HTTP error',
       inject(
         [AppService,
-          RestApiService,
+          WebApiService,
           HttpClient,
           HttpTestingController],
         (appService: AppService,
-          apiService: RestApiService,
+          webApiService: WebApiService,
           httpClient: HttpClient,
           httpTestingController: HttpTestingController) => {
 
-          spyOn(apiService, 'addApiCall');
-          spyOn(apiService, 'removeApiCall');
+          spyOn(webApiService, 'addApiCall');
+          spyOn(webApiService, 'removeApiCall');
 
           // execute the test call
           httpClient
@@ -367,9 +367,9 @@ describe('HttpInterceptorService', () => {
                 expect((<any>response)).toBeUndefined(); // the test is ko, then force error
               },
               error => {
-                expect(apiService.addApiCall).toHaveBeenCalled();
-                expect(apiService.removeApiCall).toHaveBeenCalled();
-                expect(apiService.runningApiCalls).toBeFalsy();
+                expect(webApiService.addApiCall).toHaveBeenCalled();
+                expect(webApiService.removeApiCall).toHaveBeenCalled();
+                expect(webApiService.runningApiCalls).toBeFalsy();
               });
 
           // expect that the get request happened and transmit the response

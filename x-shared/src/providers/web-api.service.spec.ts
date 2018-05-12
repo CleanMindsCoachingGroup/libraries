@@ -6,9 +6,9 @@ import { Authorization, AuthorizationDefault } from '../model/authorization';
 import { AppService } from './app.service';
 import { LogService } from './log.service';
 
-import { RestApiService } from './rest-api.service';
+import { WebApiService } from './web-api.service';
 
-describe('RestApiService', () => {
+describe('WebApiService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -16,7 +16,7 @@ describe('RestApiService', () => {
       providers: [
         AppService,
         LogService,
-        RestApiService,
+        WebApiService,
       ]
     });
   });
@@ -29,8 +29,8 @@ describe('RestApiService', () => {
 
 
   it('should instantiate',
-    inject([RestApiService], (apiService: RestApiService) => {
-      expect(apiService).toBeTruthy();
+    inject([WebApiService], (webApiService: WebApiService) => {
+      expect(webApiService).toBeTruthy();
     })
   );
 
@@ -38,8 +38,8 @@ describe('RestApiService', () => {
   it('do get requests', () => {
 
     inject(
-      [RestApiService, HttpTestingController],
-      (apiService: RestApiService, httpTestingController: HttpTestingController) => {
+      [WebApiService, HttpTestingController],
+      (webApiService: WebApiService, httpTestingController: HttpTestingController) => {
 
         // prepare the test data
         const testUrl = '/test';
@@ -47,7 +47,7 @@ describe('RestApiService', () => {
         const testResponse = { url: testUrl, parms: testParms };
 
         // execute the test call
-        apiService.get(
+        webApiService.get(
           testUrl, testParms
         ).subscribe(
           response => {
@@ -65,8 +65,8 @@ describe('RestApiService', () => {
   it('do post requests', () => {
 
     inject(
-      [RestApiService, HttpTestingController],
-      (apiService: RestApiService, httpTestingController: HttpTestingController) => {
+      [WebApiService, HttpTestingController],
+      (webApiService: WebApiService, httpTestingController: HttpTestingController) => {
 
         // prepare the test data
         const testUrl = '/test';
@@ -74,7 +74,7 @@ describe('RestApiService', () => {
         const testResponse = { url: testUrl, parms: testParms };
 
         // execute the test call
-        apiService.post(
+        webApiService.post(
           testUrl, JSON.stringify(testParms)
         ).subscribe(
           response => {
@@ -92,8 +92,8 @@ describe('RestApiService', () => {
   it('do put requests', () => {
 
     inject(
-      [RestApiService, HttpTestingController],
-      (apiService: RestApiService, httpTestingController: HttpTestingController) => {
+      [WebApiService, HttpTestingController],
+      (webApiService: WebApiService, httpTestingController: HttpTestingController) => {
 
         // prepare the test data
         const testUrl = '/test';
@@ -101,7 +101,7 @@ describe('RestApiService', () => {
         const testResponse = { url: testUrl, parms: testParms };
 
         // execute the test call
-        apiService.put(
+        webApiService.put(
           testUrl, JSON.stringify(testParms)
         ).subscribe(
           response => {
@@ -119,8 +119,8 @@ describe('RestApiService', () => {
   it('do delete requests', () => {
 
     inject(
-      [RestApiService, HttpTestingController],
-      (apiService: RestApiService, httpTestingController: HttpTestingController) => {
+      [WebApiService, HttpTestingController],
+      (webApiService: WebApiService, httpTestingController: HttpTestingController) => {
 
         // prepare the test data
         const testUrl = '/test';
@@ -128,7 +128,7 @@ describe('RestApiService', () => {
         const testResponse = { url: testUrl, parms: testParms };
 
         // execute the test call
-        apiService.delete(
+        webApiService.delete(
           testUrl, testParms
         ).subscribe(
           response => {
@@ -146,8 +146,8 @@ describe('RestApiService', () => {
   it('do patch requests', () => {
 
     inject(
-      [RestApiService, HttpTestingController],
-      (apiService: RestApiService, httpTestingController: HttpTestingController) => {
+      [WebApiService, HttpTestingController],
+      (webApiService: WebApiService, httpTestingController: HttpTestingController) => {
 
         // prepare the test data
         const testUrl = '/test';
@@ -155,7 +155,7 @@ describe('RestApiService', () => {
         const testResponse = { url: testUrl, parms: testParms };
 
         // execute the test call
-        apiService.patch(
+        webApiService.patch(
           testUrl, JSON.stringify(testParms)
         ).subscribe(
           response => {
@@ -172,12 +172,12 @@ describe('RestApiService', () => {
 
   it('can control the API calls', () => {
     inject(
-      [RestApiService],
-      (apiService: RestApiService) => {
-        apiService.addApiCall();
-        expect(apiService.runningApiCalls).toBeTruthy();
-        apiService.removeApiCall();
-        expect(apiService.runningApiCalls).toBeFalsy();
+      [WebApiService],
+      (webApiService: WebApiService) => {
+        webApiService.addApiCall();
+        expect(webApiService.runningApiCalls).toBeTruthy();
+        webApiService.removeApiCall();
+        expect(webApiService.runningApiCalls).toBeFalsy();
       });
   });
 

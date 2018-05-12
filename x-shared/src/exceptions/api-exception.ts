@@ -10,19 +10,19 @@ export class ApiException extends Exception {
   public readonly name = 'ApiException';
 
   /**
-   * @param apiService Name, path or reference of service that throws exception
+   * @param webApiService Name, path or reference of service that throws exception
    * @param message
    * @param innerException
    * @param additionalData Additional data for exception information
    */
   constructor(
-    apiService: string,
+    webApiService: string,
     message: string,
     innerException?: Error,
     additionalData?: any
   ) {
     super(
-      `Api service ${(apiService == undefined) ? '[no api service]' : '"' + apiService + '"'}: ${(message == undefined) ? '[no exception message]' : message}`, // tslint:disable-line:max-line-length
+      `Web api service ${(webApiService == undefined) ? '[no api service]' : '"' + webApiService + '"'}: ${(message == undefined) ? '[no exception message]' : message}`, // tslint:disable-line:max-line-length
       innerException
     );
   }

@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { CleanMindsPrimeNgModule } from 'clean-minds-primeng-library';
 import { environment } from '../environments/environment';
-import { AppService, LogService, RestApiService } from 'clean-minds-primeng-library';
+import { AppService, LogService, WebApiService } from 'clean-minds-primeng-library';
 
 import { AppComponent } from './app.component';
 
@@ -63,12 +63,12 @@ describe('AppComponent', () => {
         expect(logService.info).toBeTruthy();
       }));
 
-  it('should be able to access the core ApiService',
+  it('should be able to access the core WebApiService',
     inject(
-      [RestApiService],
-      (apiService: RestApiService) => {
+      [WebApiService],
+      (webApiService: WebApiService) => {
 
-        expect(apiService.get).toBeTruthy();
+        expect(webApiService.get).toBeTruthy();
       }));
 
   it('should be able to use the core HTTP interceptor service',

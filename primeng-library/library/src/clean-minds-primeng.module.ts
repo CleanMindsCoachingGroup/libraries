@@ -9,7 +9,7 @@ import { EnvironmentDefault } from './model/environment';
 import { AppServiceConfig } from '../x-shared/src/model/app-service-config';
 import { AppService } from '../x-shared/src/providers/app.service';
 import { LogService } from '../x-shared/src/providers/log.service';
-import { RestApiService } from '../x-shared/src/providers/rest-api.service';
+import { WebApiService } from '../x-shared/src/providers/web-api.service';
 import { HttpInterceptorService } from '../x-shared/src/providers/http-interceptor.service';
 import { NavigationGuardService } from './providers/navigation-guard.service';
 import { CancellationGuardService } from './providers/cancellation-guard.service';
@@ -81,7 +81,7 @@ export class CleanMindsPrimeNgModule {
         },
         AppService,
         LogService,
-        RestApiService,
+        WebApiService,
         {
           provide: HTTP_INTERCEPTORS,
           useClass: HttpInterceptorService,

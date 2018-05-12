@@ -5,7 +5,7 @@ export * from './src/clean-minds-primeng.module';
 export * from './src/model/clean-minds-primeng-library-config';
 
 // exported core library singleton providers
-export * from './x-shared/src/providers/rest-api.service';
+export * from './x-shared/src/providers/web-api.service';
 export * from './x-shared/src/providers/app.service';
 export * from './x-shared/src/providers/log.service';
 

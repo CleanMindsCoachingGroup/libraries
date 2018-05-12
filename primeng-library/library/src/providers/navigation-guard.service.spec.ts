@@ -10,7 +10,7 @@ import { Environment, EnvironmentDefault } from '../model/environment';
 import { Authorization, AuthorizationDefault } from '../model/authorization';
 
 import { UxService } from './ux.service';
-import { RestApiService } from '../../x-shared/src/providers/rest-api.service';
+import { WebApiService } from '../../x-shared/src/providers/web-api.service';
 import { ConfirmationService } from 'primeng/api';
 
 import { NavigationGuardService } from './navigation-guard.service';
@@ -34,7 +34,7 @@ describe('NavigationGuardService', () => {
         AppService,
         LogService,
         UxService,
-        RestApiService,
+        WebApiService,
         ConfirmationService,
         NavigationGuardService
       ]
