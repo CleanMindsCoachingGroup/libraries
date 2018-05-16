@@ -62,6 +62,7 @@ describe('WebApiService', () => {
       });
   });
 
+
   it('do post requests', () => {
 
     inject(
@@ -88,6 +89,7 @@ describe('WebApiService', () => {
 
       });
   });
+
 
   it('do put requests', () => {
 
@@ -116,6 +118,7 @@ describe('WebApiService', () => {
       });
   });
 
+
   it('do delete requests', () => {
 
     inject(
@@ -143,6 +146,7 @@ describe('WebApiService', () => {
       });
   });
 
+
   it('do patch requests', () => {
 
     inject(
@@ -169,6 +173,7 @@ describe('WebApiService', () => {
 
       });
   });
+
 
   it('can control the API calls', () => {
     inject(

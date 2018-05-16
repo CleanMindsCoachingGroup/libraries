@@ -17,9 +17,11 @@ describe('LogService', () => {
     });
   });
 
+
   it('should instantiate', inject([LogService], (logService: LogService) => {
     expect(logService).toBeTruthy();
   }));
+
 
   it('debug not logs if not debug in environment',
     inject([AppService, LogService], (appService: AppService, logService: LogService) => {
@@ -28,6 +30,8 @@ describe('LogService', () => {
       logService.debug('debug');
       expect(window.console.log).not.toHaveBeenCalled();
     }));
+
+
   it('debug logs if debug in environment',
     inject([AppService, LogService], (appService: AppService, logService: LogService) => {
       spyOn(window.console, 'log');
@@ -36,11 +40,13 @@ describe('LogService', () => {
       expect(window.console.log).toHaveBeenCalled();
     }));
 
+
   it('logs info', inject([LogService], (logService: LogService) => {
     spyOn(window.console, 'info');
     logService.info('info', ['object']);
     expect(window.console.info).toHaveBeenCalled();
   }));
+
 
   it('logs error', inject([LogService], (logService: LogService) => {
     spyOn(window.console, 'error');

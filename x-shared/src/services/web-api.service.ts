@@ -37,7 +37,9 @@ export class WebApiService {
     private httpClient: HttpClient,
     private logService: LogService,
   ) {
+
     this.logService.info('WebApiService created.');
+
   }
 
   /**
@@ -46,7 +48,9 @@ export class WebApiService {
    * @param params params of the request
    */
   get<T>(path: string, params?: HttpParams | { [param: string]: string | string[] }): Observable<T> {
+
     return this.httpClient.get<T>(path, { params: params });
+
   }
 
   /**
@@ -55,7 +59,9 @@ export class WebApiService {
    * @param params params of the request
    */
   post<T>(path: string, body: string): Observable<T> {
+
     return this.httpClient.post<T>(path, body);
+
   }
 
   /**
@@ -64,7 +70,9 @@ export class WebApiService {
    * @param params params of the request
    */
   put<T>(path: string, body: string): Observable<T> {
+
     return this.httpClient.put<T>(path, body);
+
   }
 
   /**
@@ -73,7 +81,9 @@ export class WebApiService {
    * @param params params of the request
    */
   delete<T>(path: string, params?: HttpParams | { [param: string]: string | string[] }): Observable<T> {
+
     return this.httpClient.delete<T>(path, { params: params });
+
   }
 
   /**
@@ -82,7 +92,9 @@ export class WebApiService {
    * @param params params of the request
    */
   patch<T>(path: string, body: string): Observable<T> {
+
     return this.httpClient.patch<T>(path, body);
+
   }
 
 }

@@ -29,6 +29,7 @@ import { MessageModule } from 'primeng/message';
 import { BlockUIModule } from 'primeng/blockui';
 
 
+
 /**
  * Clean Minds PrimeNg Application Module exports all components of the library for web development
  * exports also all core components from Clean Minds Core Application Module
@@ -56,7 +57,9 @@ import { BlockUIModule } from 'primeng/blockui';
 export class CleanMindsPrimeNgModule {
 
   constructor() {
+
     console.log(new Date().toISOString() + '\t' + 'CleanMindsPrimeNgModule initialized.'); // tslint:disable-line:no-console
+
   }
 
 
@@ -74,7 +77,7 @@ export class CleanMindsPrimeNgModule {
             environment: cleanMindsPrimengLibraryConfig.environment == undefined ?
               EnvironmentDefault :
               cleanMindsPrimengLibraryConfig.environment,
-              authorization: cleanMindsPrimengLibraryConfig.authorization == undefined ?
+            authorization: cleanMindsPrimengLibraryConfig.authorization == undefined ?
               AuthorizationDefault :
               cleanMindsPrimengLibraryConfig.authorization,
           }

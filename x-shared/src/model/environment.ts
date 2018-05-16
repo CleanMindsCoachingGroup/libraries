@@ -21,7 +21,9 @@ export interface Environment {
 /**
  * Default class for Environment
  */
-export const EnvironmentDefault = <Environment> {
+export const EnvironmentDefault = <Environment>{
+
   debug: true,
   apiBaseUrl: 'null',
+
 };

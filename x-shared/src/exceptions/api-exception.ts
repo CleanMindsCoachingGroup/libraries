@@ -21,9 +21,11 @@ export class ApiException extends Exception {
     innerException?: Error,
     additionalData?: any
   ) {
+
     super(
       `Web api service ${(webApiService == undefined) ? '[no api service]' : '"' + webApiService + '"'}: ${(message == undefined) ? '[no exception message]' : message}`, // tslint:disable-line:max-line-length
       innerException
     );
+
   }
 }

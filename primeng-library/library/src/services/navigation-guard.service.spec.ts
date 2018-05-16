@@ -15,6 +15,8 @@ import { ConfirmationService } from 'primeng/api';
 
 import { NavigationGuardService } from './navigation-guard.service';
 
+
+
 describe('NavigationGuardService', () => {
 
   beforeEach(() => {
@@ -40,6 +42,7 @@ describe('NavigationGuardService', () => {
       ]
     });
   });
+
 
   it('checks if a user is valid if route activation',
     async(

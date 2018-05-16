@@ -1,14 +1,13 @@
-import { async, inject, ComponentFixture, TestBed, fakeAsync } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
+import { async, inject, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { CleanMindsPrimeNgModule, UxService, CanDeactivateGuardService } from 'clean-minds-primeng-library';
+import { CleanMindsPrimeNgModule, UxService } from 'clean-minds-primeng-library';
 import { environment } from '../../../environments/environment';
-import { AppRoutes } from '../../app.routes';
 
 import { CanDeactivateComponent } from './can-deactivate.component';
-import { Router } from '@angular/router';
 
 describe('CanDeactivateComponent', () => {
   let component: CanDeactivateComponent;
@@ -21,6 +20,7 @@ describe('CanDeactivateComponent', () => {
       ],
       imports: [
         HttpClientTestingModule,
+        RouterTestingModule.withRoutes([]),
         ReactiveFormsModule,
         CleanMindsPrimeNgModule.forRoot({ environment })
       ]
@@ -37,7 +37,7 @@ describe('CanDeactivateComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should can\'t deactivate if form changes', () => {
+  it('should return that can\'t deactivate if form changes', () => {
     inject(
       [
         UxService

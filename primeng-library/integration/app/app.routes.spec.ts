@@ -28,7 +28,7 @@ describe('Router', () => {
         HttpClientTestingModule,
         RouterTestingModule.withRoutes(AppRoutes),
         ReactiveFormsModule,
-        CleanMindsPrimeNgModule.forRoot({environment})
+        CleanMindsPrimeNgModule.forRoot({ environment })
       ],
       declarations: [
         AppComponent,

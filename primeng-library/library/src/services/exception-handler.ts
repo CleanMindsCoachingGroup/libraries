@@ -17,8 +17,10 @@ export class ExceptionHandler extends ErrorHandler {
     @Inject(AppService) private appService: AppService,
     @Inject(LogService) private logService: LogService
   ) {
+
     super();
     this.logService.info('ExceptionHandler created.');
+
   }
 
 
@@ -26,11 +28,13 @@ export class ExceptionHandler extends ErrorHandler {
   handleError(
     error: any
   ) {
+
     // logs error
     this.logService.error(error);
     // send message to terminal
     alert((<Environment>this.appService.environment).localization.msgInternalError || 'Internal error!' + `\n\n${error}`);
     // Angular errorhandler delegation
     super.handleError(error);
+
   }
 }

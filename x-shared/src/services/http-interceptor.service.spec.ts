@@ -11,6 +11,7 @@ import { WebApiService } from './web-api.service';
 
 import { HttpInterceptorService } from './http-interceptor.service';
 
+
 describe('HttpInterceptorService', () => {
 
   beforeEach(() => {
@@ -29,16 +30,19 @@ describe('HttpInterceptorService', () => {
     });
   });
 
+
   afterEach(inject([HttpTestingController], (httpTestingController: HttpTestingController) => {
     // ever, assert that there are no outstanding requests
     httpTestingController.verify();
   }));
+
 
   it('should be created',
     inject([HTTP_INTERCEPTORS], (service: HttpInterceptorService) => {
       expect(service).toBeTruthy();
     })
   );
+
 
   it('should checks the url authorization',
     inject(
@@ -73,6 +77,7 @@ describe('HttpInterceptorService', () => {
       })
   );
 
+
   describe('handling get requests', () => {
 
     it('should return data if there is correct response',
@@ -104,6 +109,7 @@ describe('HttpInterceptorService', () => {
 
         })
     );
+
 
     it('should return ApiException if response not contains an Object',
       inject(
@@ -137,6 +143,7 @@ describe('HttpInterceptorService', () => {
 
         })
     );
+
 
     it('should return ApiException if there is HTTP error',
       inject(
@@ -207,6 +214,7 @@ describe('HttpInterceptorService', () => {
         })
     );
 
+
     it('should return ApiException if response not contains an Object',
       inject(
         [AppService,
@@ -239,6 +247,7 @@ describe('HttpInterceptorService', () => {
 
         })
     );
+
 
     it('should return ApiException if there is HTTP error',
       inject(
@@ -276,6 +285,7 @@ describe('HttpInterceptorService', () => {
 
   });
 
+
   describe('controls if there is active API calls', () => {
 
     it('when there is response',
@@ -309,6 +319,7 @@ describe('HttpInterceptorService', () => {
           testRequest.flush({});
         })
     );
+
 
     it('when response not contains an Object',
       inject(
@@ -344,6 +355,7 @@ describe('HttpInterceptorService', () => {
           testRequest.flush(null);
         })
     );
+
 
     it('when there is HTTP error',
       inject(

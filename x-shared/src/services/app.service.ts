@@ -4,6 +4,8 @@ import { AppServiceConfig } from '../model/app-service-config';
 import { Environment, EnvironmentDefault } from '../model/environment';
 import { Authorization, AuthorizationDefault } from '../model/authorization';
 
+
+
 /**
  * Injectable container for global app objects, created by internal AppServiceFactory.
  */
@@ -30,6 +32,7 @@ export class AppService {
     }
 
     console.log(new Date().toISOString() + '\t' + 'AppService created.'); // tslint:disable-line:no-console
+
   }
 
   /**

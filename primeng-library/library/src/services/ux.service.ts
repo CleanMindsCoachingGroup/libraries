@@ -30,7 +30,9 @@ export class UxService {
     private webApiService: WebApiService,
     private confirmationService: ConfirmationService
   ) {
+
     this.logService.info('UxService created.');
+
   }
 
   /**
@@ -46,7 +48,9 @@ export class UxService {
       rejectVisible?: boolean;
       rejectLabel?: string;
     }) {
+
     return await this.showConfirm(confirmation).toPromise();
+
   }
 
 
@@ -93,7 +97,9 @@ export class UxService {
     });
 
     return confirmationSubject.asObservable();
+
   }
+
 
   /**
   * Ux locking
@@ -105,12 +111,18 @@ export class UxService {
   get uxLockMessage(): string { return this._uxLockMessage; }
 
   lockUx(message?: string) {
+
     this.uxLocks += 1;
     if (!this.uxLockMessage) { this._uxLockMessage = message; }
+
   }
+
+
   unlockUx() {
+
     this.uxLocks -= 1;
     this._uxLockMessage = undefined;
+
   }
 
 
@@ -126,9 +138,9 @@ export class UxService {
    * Messages, including the last 10 messages list.
    */
 
-   /**
-   * Deliver messages to primeNg growl component in {@link UxComponent}
-   */
+  /**
+  * Deliver messages to primeNg growl component in {@link UxComponent}
+  */
   public toShowMessagges: PrimeNgMessage[] = []; // tslint:disable-line:member-ordering
 
   private historyMessages: PrimeNgMessage[] = []; // tslint:disable-line:member-ordering
@@ -136,8 +148,11 @@ export class UxService {
    * @returns Last 10 messages list
    */
   get messagesHistory(): PrimeNgMessage[] {
+
     return this.historyMessages;
+
   }
+
 
   /**
    * Push the messages for its deliver
@@ -160,5 +175,6 @@ export class UxService {
       }
       this.historyMessages.push(primeNgMessage);
     });
+
   }
 }

@@ -7,12 +7,15 @@ import { AppService } from '../../x-shared/src/services/app.service';
 import { LogService } from '../../x-shared/src/services/log.service';
 import { UxService } from './ux.service';
 
+
+
 /**
  * Interface for component deactivation control
  */
 export interface ComponentCanDeactivate {
   canDeactivate: () => Observable<boolean> | Promise<boolean> | boolean;
 }
+
 
 
 /**
@@ -32,8 +35,11 @@ export class CanDeactivateGuardService implements CanDeactivate<ComponentCanDeac
     private logService: LogService,
     private uxService: UxService
   ) {
+
     this.logService.info('CancellationGuardService created.');
+
   }
+
 
   /**
    * Checks if the component can deactivate, if not, shows a confirmation message

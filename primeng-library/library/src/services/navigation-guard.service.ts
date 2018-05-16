@@ -24,7 +24,9 @@ export class NavigationGuardService implements CanActivate, CanLoad, CanActivate
     private logService: LogService,
     private uxService: UxService,
   ) {
+
     this.logService.info('NavigationGuardService created.');
+
   }
 
 
@@ -32,43 +34,67 @@ export class NavigationGuardService implements CanActivate, CanLoad, CanActivate
     activatedRouteSnapshot: ActivatedRouteSnapshot,
     routerStateSnapshot: RouterStateSnapshot
   ): boolean {
-    const authorization = this.checkAuthorization(activatedRouteSnapshot.routeConfig.path);
-    this.logService.debug('Checking authorization for activation of route \'' +
-      activatedRouteSnapshot.routeConfig.path + '\': ' + authorization);
-    return authorization;
+
+    this.logService.debug('Checking permissions for activation of route \'' + activatedRouteSnapshot.routeConfig.path + '\'');
+
+    if (this.checkRouteAuthorization(activatedRouteSnapshot.routeConfig.path)) {
+      return true;
+    }
+
+    this.logService.error('Forbidden route activation \'' + activatedRouteSnapshot.routeConfig.path + '\'');
+    return false;
+
   }
+
 
   public canActivateChild(
     activatedRouteSnapshot: ActivatedRouteSnapshot,
     routerStateSnapshot: RouterStateSnapshot
   ): boolean {
-    const authorization = this.checkAuthorization(activatedRouteSnapshot.routeConfig.path);
-    this.logService.debug('Checking authorization for child activation of route \'' + activatedRouteSnapshot.routeConfig.path +
-      '\': ' + authorization);
-    return authorization;
+
+    this.logService.debug('Checking permissions for child activation of route \'' + activatedRouteSnapshot.routeConfig.path + '\'');
+
+    if (this.checkRouteAuthorization(activatedRouteSnapshot.routeConfig.path)) {
+      return true;
+    }
+
+    this.logService.error('Forbidden route child activation \'' + activatedRouteSnapshot.routeConfig.path + '\'');
+    return false;
+
   }
 
   public canLoad(route: Route): boolean {
-    const authorization = this.checkAuthorization(route.path);
-    this.logService.debug('Checking authorization for route load \'' + route.path + '\': ' + authorization);
-    return authorization;
+
+    this.logService.debug('Checking permissions for route load \'' + route.path + '\'');
+
+    if (this.checkRouteAuthorization(route.path)) {
+      return true;
+    }
+
+    this.logService.error('Forbidden route load \'' + route.path + '\'');
+    return false;
+
   }
 
   /**
-   * Checks if the user is logged
+   * Checks the route authorization:
+   * * the user is logged
+   * * the user has permission for the route
    */
-  private checkAuthorization(
+  private checkRouteAuthorization(
     path: string
   ) {
+
     if (this.appService.authorization.isAuthenticated() && this.appService.authorization.isAuthorizedRoutePath(path)) {
       return true;
     } else {
       this.uxService.pushMessages(
-        new UxMessage(UxMessage.Severity.Success, 99999, (<Environment>this.appService.environment).localization.msgForbiddenPath)
+        new UxMessage(UxMessage.Severity.Error, 99999, (<Environment>this.appService.environment).localization.msgForbiddenPath)
       );
       this.logService.error('Forbidden access' + path ? `to path ${path}.` : '.');
       this.router.navigate(undefined);
       return false;
     }
+
   }
 }

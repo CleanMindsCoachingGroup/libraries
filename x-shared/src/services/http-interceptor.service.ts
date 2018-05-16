@@ -33,6 +33,7 @@ export class HttpInterceptorService implements HttpInterceptor {
     private logService: LogService,
     private webApiService: WebApiService
   ) {
+
     if (this.headers == undefined) {
       logService.debug('Initializing API http headers.');
       this.headers = new HttpHeaders();
@@ -43,6 +44,7 @@ export class HttpInterceptorService implements HttpInterceptor {
       this.headers.append('Expires', '0');
     }
     this.logService.info('HttpInterceptorService created.');
+
   }
 
 
@@ -170,5 +172,6 @@ export class HttpInterceptorService implements HttpInterceptor {
     this.logService.error(httpResponseError);
 
     return new ErrorObservable(error);
+
   }
 }

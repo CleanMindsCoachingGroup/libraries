@@ -19,7 +19,7 @@ describe('LoginComponent', () => {
       imports: [
         HttpClientTestingModule,
         RouterTestingModule.withRoutes([]),
-        CleanMindsPrimeNgModule.forRoot({environment})
+        CleanMindsPrimeNgModule.forRoot({ environment })
       ]
     }).compileComponents();
   }));

@@ -1,16 +1,22 @@
 <p>
-    <button type="button" (click)="showSuccessMessage()">Show success message</button>
-    <button type="button" (click)="showInfoMessage()">Show info message</button>
-    <button type="button" (click)="showWarningMessage()">Show warning message</button>
-    <button type="button" (click)="showErrorMessage()">Show error message</button>
-    <br><br>
-    <button type="button" (click)="showLastMessages()">Show last messages</button>
-    <br><br>
-    <button type="button" (click)="lockUi()">Lock page for 2 seconds</button>
-    <br><br>
-    <button type="button" (click)="showConfirmation()">Show confirmation dialog</button>
-    <br><br>
-    <button type="button" (click)="goCanDeactivatePage()">Go to change guard page</button>
-    <br><br>
-    <span>Authenticated: {{ appService.authorization.isAuthenticated() }}  </span><button type="button" (click)="goLoginPage()">Go to Login page</button>
+  <button type="button" (click)="showSuccessMessage()">Show success message</button>
+  <button type="button" (click)="showInfoMessage()">Show info message</button>
+  <button type="button" (click)="showWarningMessage()">Show warning message</button>
+  <button type="button" (click)="showErrorMessage()">Show error message</button>
+  <br>
+  <br>
+  <button type="button" (click)="showLastMessages()">Show last messages</button>
+  <br>
+  <br>
+  <button type="button" (click)="lockUi()">Lock page for 2 seconds</button>
+  <br>
+  <br>
+  <button type="button" (click)="showConfirmation()">Show confirmation dialog</button>
+  <br>
+  <br>
+  <button type="button" (click)="goCanDeactivatePage()">Go to change guard page</button>
+  <br>
+  <br>
+  <span>Authenticated: {{ appService.authorization.isAuthenticated() }} </span>
+  <button type="button" (click)="goLoginPage()">Go to Login page</button>
 </p>

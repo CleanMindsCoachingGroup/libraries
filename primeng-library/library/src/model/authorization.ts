@@ -12,11 +12,15 @@ export interface Authorization extends CoreAuthorization {
 
 }
 
+
+
 /**
  * Default class for Authorization
  */
-export const AuthorizationDefault = <Authorization> {
+export const AuthorizationDefault = <Authorization>{
+
   isAuthenticated: () => true,
   isAuthorizedRoutePath: (route: string) => true,
   info: undefined,
+
 };

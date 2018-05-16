@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppService, LogService, ComponentCanDeactivate } from 'clean-minds-primeng-library';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';

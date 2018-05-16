@@ -5,6 +5,8 @@ import { Authorization, AuthorizationDefault } from '../model/authorization';
 
 import { AppService } from './app.service';
 
+
+
 describe('AppService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -14,14 +16,17 @@ describe('AppService', () => {
     });
   });
 
+
   it('should instantiate', inject([AppService], (appService: AppService) => {
     expect(appService).toBeTruthy();
   }));
+
 
   it('should have default Environment', inject([AppService], (appService: AppService) => {
     expect(appService.environment.debug).toBeTruthy();
     expect(appService.environment.apiBaseUrl).toBe('null');
   }));
+
 
   it('should have default Authorization', inject([AppService], (appService: AppService) => {
     expect(appService.authorization.isAuthenticated).toBeTruthy();

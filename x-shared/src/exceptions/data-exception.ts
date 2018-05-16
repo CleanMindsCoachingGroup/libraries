@@ -17,7 +17,10 @@ export class DataException extends Exception {
     data: string,
     message: string
   ) {
+
     super(
-      `${ (data == undefined) ? '[no exception data]' : data }, ${ (message == undefined) ? '[no exception message]' : message }`); // tslint:disable-line:max-line-length
+      `${(data == undefined) ? '[no exception data]' : data}, ${(message == undefined) ? '[no exception message]' : message}`); // tslint:disable-line:max-line-length
+
   }
+
 }

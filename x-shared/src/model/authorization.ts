@@ -23,7 +23,9 @@ export interface Authorization {
 /**
  * Default class for Authorization
  */
-export const AuthorizationDefault = <Authorization> {
+export const AuthorizationDefault = <Authorization>{
+
   isAuthenticated: () => true,
   isAuthorizedRoutePath: (route: string) => true,
+
 };

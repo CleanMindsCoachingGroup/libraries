@@ -17,11 +17,13 @@ export class UxMessage {
     Error: 'error'
   };
 
+
   constructor(
     public severity: string,
     public code: number,
     public detail: string
   ) {
+
     if (severity == undefined ||
       (severity !== UxMessage.Severity.Success
         && severity !== UxMessage.Severity.Info
@@ -30,7 +32,10 @@ export class UxMessage {
     ) {
       throw new DataException('severity', `invalid value: ${severity}`);
     }
+
     if (code == undefined) { throw new DataException('code', `invalid value: ${code}`); }
     if (detail == undefined) { throw new DataException('detail', `invalid value: ${detail}`); }
+
   }
+
 }

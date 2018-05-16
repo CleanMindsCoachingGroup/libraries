@@ -17,12 +17,12 @@ export class Exception extends Error {
     message: string,
     innerException?: Error,
   ) {
+
     super((message == undefined) ? '[no exception message]' : message);
 
     this.innerException = innerException || undefined;
     this.stack = (<any>new Error()).stack;
 
-    // no LogService, logs directly to console
   }
 
 }
